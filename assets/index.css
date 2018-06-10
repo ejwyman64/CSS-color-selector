@@ -1,57 +1,6 @@
-/*body{
-	color: black;
-}
-header{
-	color: white;
-	background-color: black;
-	padding: auto;
-	margin-bottom: 5px;
-}
-
-.navbar a {
-	color: white;
-}
-
-.navbar-right a{
-	margin-left: 15px;
-}
-
-.jumbotron{
-	text-align: center;
-	color: black;
-}
-
-.color-group{
-	display: flex;
-	flex-direction: column;
-	padding-bottom: 25vh;
-}
-
-.input-group{
-	display: flex;
-	flex-direction: row;
-	padding-bottom: 15px;
-}
-
-.input-group label{
-	margin-right: 20px;
-	text-align: center;
-}
-
-.input-group input[type=text]{
-	max-width: 40px;
-	margin-right: 20px;
-}
-
-.input-group input[type=range]{
-	flex-grow: 1;
-}*/
-
-/***************************************
-			Fixed with auto prefixer
-***************************************/
 body{
 	color: black;
+	min-height: 100vh;
 }
 header{
 	color: white;
@@ -60,24 +9,86 @@ header{
 	margin-bottom: 5px;
 }
 
+footer{
+	position: fixed;
+	min-height: 30px;
+	background-color: #000;
+	color: #e9ecef;
+	text-align: center;
+	width: 100%;
+	left: 0;
+	bottom: 0;
+}
+
+footer p{
+	padding: auto;
+	margin-bottom: 0;
+}
+
+footer p span a{
+	color: #e9ecef;
+}
+
+footer p span a:hover{
+	text-decoration: none;
+}
+
 .navbar a {
 	color: white;
+	opacity: .9;
+}
+
+.navbar a:hover{
+	opacity: 1;
+}
+
+.container {
+	margin-top: 40px;
+	border: 2px solid #fff;
+	border-radius: .3em;
+	padding: 20px;
+}
+
+.navbar a {
+	color: white;
+
 }
 
 .navbar-right a{
 	margin-left: 15px;
+	opacity: .9;
+}
+
+.navbar-right a:hover{
+	opacity: 1;
 }
 
 .jumbotron{
 	text-align: center;
-	color: black;
+	color: white;
+	background-color: #000;
 }
 
-.color-group{
+button {
+	background-color: #000;
+	border-radius: .3em;
+	color: white;
+	font-size: 20px;
+	padding: 5px;
+	width: 135px;
+	 
+}
+
+button:focus {
+	outline: 0;
+}
+
+.color-group {
 	display: flex;
 	flex-direction: column;
-	padding-bottom: 25vh;
+	padding-bottom: auto;
 }
+
 .color-group label{
 	width: 100px;
 }
@@ -94,10 +105,146 @@ header{
 }
 
 .input-group input[type=text]{
-	width: 50px;
+	text-align: center;
+	width: 45px;
 	margin-right: 20px;
+	border: 2px solid #000;
+	border-radius: .3em;
+	padding: 3px;
 }
 
 .input-group input[type=range]{
 	flex-grow: 1;
 }
+
+
+/* The input styling here is mostly taken from https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/ and modified 
+to suit the style of this site.*/
+input[type=range] {
+	-webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+	width: 70%; /* Specific width is required for Firefox. */
+	background: transparent; /* Otherwise white in Chrome */
+  }
+  
+  input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+  }
+  
+  input[type=range]:focus {
+	outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+  }
+  
+  input[type=range]::-ms-track {
+	width: 100%;
+	cursor: pointer;
+  
+	/* Hides the slider so custom styles can be added */
+	background: transparent; 
+	border-color: transparent;
+	color: transparent;
+  }
+
+/* Special styling for WebKit/Blink */
+input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	border: 2px solid #000000;
+	height: 30px;
+	width: 16px;
+	border-radius: 0.3em;
+	background: #ffffff;
+	cursor: pointer;
+	margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  }
+  
+  /* All the same stuff for Firefox */
+  input[type=range]::-moz-range-thumb {
+	border: 2px solid #000000;
+	height: 30px;
+	width: 16px;
+	border-radius: 0.3em;
+	background: #ffffff;
+	cursor: pointer;
+  }
+  
+  /* All the same stuff for IE */
+  input[type=range]::-ms-thumb {
+	border: 2px solid #000000;
+	height: 30px;
+	width: 16px;
+	border-radius: 0.3em;
+	background: #ffffff;
+	cursor: pointer;
+  }
+
+  input[type=range]::-webkit-slider-runnable-track {
+	width: 70%;
+	height: 8.4px;
+	cursor: pointer;
+	background: #fff;
+	border-radius: 0.3em;
+	border: 2px solid #010101;
+  }
+  
+  input[type=range]:focus::-webkit-slider-runnable-track {
+	background: #fff;
+  }
+  
+  input[type=range]::-moz-range-track {
+	width: 70%;
+	height: 8.4px;
+	cursor: pointer;
+	background: #fff;
+	border-radius: 0.3em;
+	border: 2px solid #010101;
+  }
+  
+  input[type=range]::-ms-track {
+	width: 70%;
+	height: 8.4px;
+	cursor: pointer;
+	background: transparent;
+	border-color: transparent;
+	border-width: 16px 0;
+	color: transparent;
+  }
+  input[type=range]::-ms-fill-lower {
+	background: fff;
+	border: 2px solid #010101;
+	border-radius: 0.3em;
+  }
+  input[type=range]:focus::-ms-fill-lower {
+	background: #fff;
+  }
+  input[type=range]::-ms-fill-upper {
+	background: #fff;
+	border: 2px solid #010101;
+	border-radius: 0.3em;
+  }
+
+  input[type=range]:focus::-ms-fill-upper {
+	background: #fff;
+  }
+
+#code-icon{
+	display: none;
+}
+
+/* creates a media query for smaller display items */
+@media (max-width: 500px)
+{
+	/* When on a mobile screen the code button will appear*/
+	#code-icon{
+		display: block;
+	}
+	/* The colab details information will dissapear */
+	.colab-details{
+		display: none;
+	}
+	.visable{
+		display: flex;
+		flex-direction: column;
+	}
+
+}
+
+
